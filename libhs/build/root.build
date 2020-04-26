@@ -1,0 +1,17 @@
+using in
+
+using c
+
+h{*}: extension = h
+c{*}: extension = c
+
+cxx.std = c++11
+
+using cxx
+
+hxx{*}: extension = h
+cxx{*}: extension = cpp
+
+# The test target for cross-testing (running tests under Wine, etc).
+#
+test.target = $cxx.target

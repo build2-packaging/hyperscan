@@ -1,0 +1,13 @@
+: 1
+name: libhs
+version: 5.2.1-a.0.z
+project: hyperscan
+summary: High-performance regular expression matching library
+license: BSD3
+description-file: README.md
+url: https://www.hyperscan.io
+email: mb@64k.by
+depends: * build2 >= 0.12.0
+depends: * bpkg >= 0.12.0
+requires: boost
+requires: avx2

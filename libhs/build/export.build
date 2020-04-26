@@ -1,0 +1,6 @@
+$out_root/
+{
+  include libhs/
+}
+
+export $out_root/libhs/$import.target

@@ -1,0 +1,3 @@
+# libhs
+
+C++ library
