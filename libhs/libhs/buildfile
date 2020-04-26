@@ -4,8 +4,11 @@ imp_libs = # Implementation dependencies.
 
 lib{hs}: {h c}{** -src/hwlm/noodle_engine_*.c -src/dispatcher.c -version} \
          {h cxx}{** -version -**dump.cpp -src/nfa/nfa_dump_**.cpp} \
+         hxx{include/boost-patched/graph/*.hpp} \
          h{version} \
          $imp_libs $int_libs
+
+lib{hs}: c{ src/hwlm/noodle_engine_avx2.c }: include = adhoc
 
 # Include the generated version header into the distribution (so that we don't
 # pick up an installed one) and don't remove it when cleaning in src (so that
@@ -48,6 +51,10 @@ else
 
 {h}{*}: install = false
 {hxx}{*}: install = false
+
+#hxx{include/boost-patched/graph/dominator_tree.hpp}: install = include/boost-patched/graph/
+
+#h{hs_version}: install = include/hs/
 
 for h: hs_version src/{hs hs_common hs_compile hs_runtime}
 {

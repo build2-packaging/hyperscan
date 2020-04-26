@@ -1,7 +1,6 @@
 # hyperscan
 
-`build2` evil-takeover package for intel's [hyperscan](https://hyperscan.io) library.
+`build2` package assimilation of the @intel [hyperscan](https://www.hyperscan.io) library.
 
 **VERY-MUCH-IN-PROGRESS**
-
 
