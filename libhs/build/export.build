@@ -1,6 +1,6 @@
 $out_root/
 {
-  include libhs/
+  include hs/
 }
 
-export $out_root/libhs/$import.target
+export $out_root/hs/$import.target

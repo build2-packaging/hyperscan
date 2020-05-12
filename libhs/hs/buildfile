@@ -1,9 +1,8 @@
 int_libs = # Interface dependencies.
 imp_libs = # Implementation dependencies.
-#import imp_libs += libhello%lib{hello}
 
 lib{hs}: {h c}{** -src/hwlm/noodle_engine_*.c -src/dispatcher.c -version} \
-         {h cxx}{** -version -**dump.cpp -src/nfa/nfa_dump_**.cpp} \
+         {h cxx}{** -version -**dump.cpp -src/nfa/nfa_dump_*.cpp} \
          hxx{include/boost-patched/graph/*.hpp} \
          h{version} \
          $imp_libs $int_libs
@@ -33,7 +32,7 @@ objs{*}: cxx.poptions += -DLIBHS_SHARED_BUILD
 #
 lib{hs}:
 {
-  cc.export.poptions = "-I$out_root" "-I$src_root" "-I$src_base" "-I$src_base/src" "-I$src_base/include"
+  cc.export.poptions = "-I$out_root" "-I$src_root"
   cc.export.libs = $int_libs
 }
 
@@ -49,14 +48,10 @@ if $version.pre_release
 else
   lib{hs}: bin.lib.version = @"-$version.major.$version.minor"
 
-{h}{*}: install = false
-{hxx}{*}: install = false
+h{*}: install = false
+hxx{*}: install = false
 
-#hxx{include/boost-patched/graph/dominator_tree.hpp}: install = include/boost-patched/graph/
-
-#h{hs_version}: install = include/hs/
-
-for h: hs_version src/{hs hs_common hs_compile hs_runtime}
+for h: {hs_version hs hs_common hs_compile hs_runtime}
 {
   h{$h}@./$path.directory($h): install = include/hs/
 }

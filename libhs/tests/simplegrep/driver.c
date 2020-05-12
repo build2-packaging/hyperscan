@@ -58,8 +58,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// FIXME: this should really be <hs/hs.h>
-#include <hs.h>
+#include <hs/hs.h>
 
 /**
  * This is the function that will be called for each match that occurs. @a ctx
