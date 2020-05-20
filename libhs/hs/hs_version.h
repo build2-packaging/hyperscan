@@ -26,15 +26,17 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef HS_VERSION_H_C6428FAF8E3713
-#define HS_VERSION_H_C6428FAF8E3713
+#ifndef HS_VERSION_H
+#define HS_VERSION_H
+
+/* modified to use `build2` provided `version.h` */
+#include <hs/version.h>
 
 /**
  * A version string to identify this release of Hyperscan.
  */
-#define HS_VERSION_STRING "5.2.1 2020-04-26"
+#define HS_VERSION_STRING LIBHS_VERSION_STR
 
-#define HS_VERSION_32BIT ((5 << 24) | (2 << 16) | (1 << 8) | 0)
+#define HS_VERSION_32BIT ((LIBHS_VERSION_MAJOR << 24) | (LIBHS_VERSION_MINOR << 16) | (LIBHS_VERSION_PATCH << 8) | 0)
 
-#endif /* HS_VERSION_H_C6428FAF8E3713 */
-
+#endif 

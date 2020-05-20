@@ -1,0 +1,24 @@
+: missing-pattern-and-file
+$* 2>>"EOF" != 0
+Usage: $0 <pattern> <input file>
+EOF
+
+: with-input-file
+{
+  input = $~/input.txt
+
+  +cat <<EOI >=$input
+  aa
+  bb
+  aabbcc
+  EOI
+
+  $* "*.cc" $input 2>>EOO != 0 : invalid-pattern
+  ERROR: Unable to compile pattern "*.cc": Invalid repeat at index 0.
+  EOO
+
+  $* "aabb.c" $input >>EOO : single-match
+  Scanning 13 bytes with Hyperscan
+  Match for pattern "aabb.c" at offset 12
+  EOO
+}
