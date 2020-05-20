@@ -1,6 +1,6 @@
 : 1
 name: libhs
-version: 5.2.1-a.0.z
+version: 5.2.1
 project: hyperscan
 summary: High-performance regular expression matching library
 license: BSD3
